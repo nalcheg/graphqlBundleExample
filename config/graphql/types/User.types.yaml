@@ -1,0 +1,14 @@
+User:
+  type: object
+  config:
+    description: "A user"
+    fields:
+      id:
+        type: "Int"
+        description: "The unique ID of the ticket."
+      login:
+        type: "String"
+        description: "User login."
+      name:
+        type: "String"
+        description: "User name."

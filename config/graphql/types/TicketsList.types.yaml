@@ -1,0 +1,8 @@
+TicketsList:
+  type: object
+  config:
+    description: "A query to return list of Tickets"
+    fields:
+      tickets:
+        type: "[Ticket]"
+        description: "Ticket details"

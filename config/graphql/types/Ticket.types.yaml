@@ -1,0 +1,18 @@
+Ticket:
+  type: object
+  config:
+    description: "A ticket"
+    fields:
+      id:
+        type: "Int!"
+        description: "The unique ID of the ticket."
+      user:
+        type: "User"
+        description: "User, that created this ticket."
+      reason:
+        type: "String"
+        description: "Reason of ticket."
+      comments:
+        type: "[TicketComment]"
+        description: "Ticket comments."
+        resolve: "@=value.getTicketCommentes()"

@@ -1,0 +1,21 @@
+Query:
+  type: object
+  config:
+    description: "ORM repository"
+    fields:
+
+      ticket:
+        type: "Ticket"
+        args:
+          id:
+            description: "Resolves using the ticket id."
+            type: "Int"
+        resolve: "@=resolver('Ticket', [args])"
+
+      tickets_list:
+        type: "TicketsList"
+        args:
+          limit:
+            description: "limit"
+            type: "Int"
+        resolve: "@=resolver('TicketsList', [args])"
