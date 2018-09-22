@@ -1,0 +1,62 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      CreateTicketComment:
+        type: CreateTicketCommentPayload!
+        resolve: "@=mutation('create_ticket_comment', [args['input']['ticket_id'], args['input']['user_id'], args['input']['comment']])"
+        args:
+          #using input object type is optional, we use it here to be iso with relay mutation example.
+          input:
+            type: CreateTicketCommentInput!
+      CreateTicket:
+        type: CreateTicketPayload!
+        resolve: "@=mutation('create_ticket', [args['input']['user_id'], args['input']['reason']])"
+        args:
+          #using input object type is optional, we use it here to be iso with relay mutation example.
+          input:
+            type: CreateTicketInput!
+
+CreateTicketPayload:
+  type: object
+  config:
+    fields:
+      id:
+        type: "Int"
+      user:
+        type: "User"
+      reason:
+        type: "String"
+
+CreateTicketInput:
+  type: input-object
+  config:
+    fields:
+      user_id:
+        type: "Int"
+      reason:
+        type: "String"
+
+CreateTicketCommentPayload:
+  type: object
+  config:
+    fields:
+      id:
+        type: "Int"
+      ticket:
+        type: "Ticket"
+      user:
+        type: "User"
+      comment:
+        type: "String"
+
+CreateTicketCommentInput:
+  type: input-object
+  config:
+    fields:
+      ticket_id:
+        type: "Int"
+      user_id:
+        type: "Int"
+      comment:
+        type: "String"
