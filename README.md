@@ -1,3 +1,11 @@
+**Kickstart:**
+```bash
+cp .env.dist .env
+docker-compose up -d
+docker-compose exec phpfpm bash -c "composer install"
+sleep 60 # wait for mysql up
+docker-compose exec phpfpm bash -c "./loadDataInDatabase.sh"
+```
 **Query for tickets with comments:**
 ```
 {
